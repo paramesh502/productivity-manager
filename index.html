@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Monitor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Productivity Monitor</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#task-manager"><i class="fas fa-tasks"></i> Task Manager</a></li>
+            <li><a href="#pomodoro"><i class="fas fa-clock"></i> Pomodoro</a></li>
+            <li><a href="#habits"><i class="fas fa-calendar-check"></i> Habits</a></li>
+            <li><a href="#journal"><i class="fas fa-book"></i> Journal</a></li>
+            <li><a href="#goals"><i class="fas fa-bullseye"></i> Goals</a></li>
+            <li><a href="#time-tracking"><i class="fas fa-stopwatch"></i> Time Tracking</a></li>
+            <li><a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            <li><a href="#calendar"><i class="fas fa-calendar"></i> Calendar</a></li>
+            <li><a href="#motivation"><i class="fas fa-quote-left"></i> Motivation</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h1>Welcome to Productivity Monitor</h1>
+            <p>Your all-in-one productivity companion</p>
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Tasks</h3>
+                    <p>0 Pending</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Focus Time</h3>
+                    <p>0 Hours</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Habits</h3>
+                    <p>0 Streak</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Manager Section -->
+        <section id="task-manager" class="section">
+            <h2>Task Manager</h2>
+            <div class="task-form">
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                <select id="task-category">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                </select>
+                <button id="add-task">Add Task</button>
+            </div>
+            <div class="task-list">
+                <!-- Tasks will be added here dynamically -->
+            </div>
+        </section>
+
+        <!-- Pomodoro Section -->
+        <section id="pomodoro" class="section">
+            <h2>Pomodoro Timer</h2>
+            <div class="timer-container">
+                <div class="timer-display">25:00</div>
+                <div class="timer-controls">
+                    <button id="start-timer">Start</button>
+                    <button id="pause-timer">Pause</button>
+                    <button id="reset-timer">Reset</button>
+                </div>
+                <div class="timer-mode">
+                    <button class="mode-btn active" data-time="25">Work</button>
+                    <button class="mode-btn" data-time="5">Short Break</button>
+                    <button class="mode-btn" data-time="15">Long Break</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habit Tracker Section -->
+        <section id="habits" class="section">
+            <h2>Habit Tracker</h2>
+            <div class="habit-form">
+                <input type="text" id="habit-input" placeholder="Add a new habit...">
+                <button id="add-habit">Add Habit</button>
+            </div>
+            <div class="habit-list">
+                <!-- Habits will be added here dynamically -->
+            </div>
+        </section>
+
+        <!-- Journal Section -->
+        <section id="journal" class="section">
+            <h2>Daily Journal</h2>
+            <div class="journal-container">
+                <textarea id="journal-entry" placeholder="Write your thoughts here..."></textarea>
+                <div class="journal-controls">
+                    <button id="save-journal">Save Entry</button>
+                    <button id="clear-journal">Clear</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals" class="section">
+            <h2>Goals Tracker</h2>
+            <div class="goals-container">
+                <div class="goal-form">
+                    <input type="text" id="goal-input" placeholder="Add a new goal...">
+                    <input type="number" id="goal-progress" min="0" max="100" placeholder="Progress %">
+                    <button id="add-goal">Add Goal</button>
+                </div>
+                <div class="goals-list">
+                    <!-- Goals will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Tracking Section -->
+        <section id="time-tracking" class="section">
+            <h2>Time Tracking</h2>
+            <div class="time-tracker">
+                <div class="current-activity">
+                    <input type="text" id="activity-input" placeholder="What are you working on?">
+                    <button id="start-tracking">Start</button>
+                    <button id="stop-tracking">Stop</button>
+                </div>
+                <div class="time-log">
+                    <!-- Time logs will be added here dynamically -->
+                </div>
+                <button id="export-logs">Export Logs</button>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section">
+            <h2>Productivity Reports</h2>
+            <div class="reports-container">
+                <div class="chart-container">
+                    <canvas id="focus-hours-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="tasks-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="habits-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar" class="section">
+            <h2>Calendar</h2>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="current-month">January 2024</h3>
+                    <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid">
+                    <!-- Calendar will be generated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section id="motivation" class="section">
+            <h2>Daily Motivation</h2>
+            <div class="quote-container">
+                <p id="quote-text">Loading quote...</p>
+                <p id="quote-author"></p>
+                <button id="new-quote">New Quote</button>
+            </div>
+            <div class="custom-quote">
+                <h3>Add Your Own Quote</h3>
+                <textarea id="custom-quote-input" placeholder="Write your motivational quote..."></textarea>
+                <button id="add-custom-quote">Add Quote</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="team-info">
+            <h3>Team Members</h3>
+            <p>Parameshwar Reddy</p>
+            <p>Hemalatha Reddy</p>
+            <p>Jagan Sai Kumar</p>
+            <p>Rishitha</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Productivity Monitor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/enhancements.js"></script>
+</body>
+</html> 

@@ -1,0 +1,411 @@
+:root {
+    --primary-yellow: #FFD700;
+    --secondary-yellow: #FFC107;
+    --dark-yellow: #FFA000;
+    --black: #000000;
+    --dark-gray: #1a1a1a;
+    --light-gray: #333333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--dark-gray);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
+}
+
+.logo {
+    color: var(--primary-yellow);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--primary-yellow);
+    color: var(--black);
+}
+
+.theme-toggle {
+    color: var(--primary-yellow);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    padding: 2rem;
+    flex: 1;
+}
+
+.section {
+    display: none;
+    padding: 2rem;
+    background-color: var(--dark-gray);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(255, 215, 0, 0.1);
+}
+
+.section.active {
+    display: block;
+}
+
+/* Quick Stats */
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    color: var(--primary-yellow);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Forms and Inputs */
+input, select, textarea {
+    background-color: var(--light-gray);
+    border: 2px solid var(--primary-yellow);
+    color: var(--white);
+    padding: 0.8rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    width: 100%;
+}
+
+button {
+    background-color: var(--primary-yellow);
+    color: var(--black);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--dark-yellow);
+    transform: translateY(-2px);
+}
+
+/* Task Manager */
+.task-form {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.task-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.task-item {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pomodoro Timer */
+.timer-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.timer-display {
+    font-size: 4rem;
+    color: var(--primary-yellow);
+    margin: 2rem 0;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.timer-mode {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.mode-btn {
+    background-color: var(--light-gray);
+    color: var(--white);
+}
+
+.mode-btn.active {
+    background-color: var(--primary-yellow);
+    color: var(--black);
+}
+
+/* Habit Tracker */
+.habit-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.habit-item {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Journal */
+.journal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#journal-entry {
+    min-height: 300px;
+    resize: vertical;
+}
+
+/* Goals */
+.goals-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.goal-item {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-yellow);
+    transition: width 0.3s ease;
+}
+
+/* Time Tracking */
+.time-tracker {
+    display: grid;
+    gap: 2rem;
+}
+
+.current-activity {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+}
+
+/* Reports */
+.reports-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.chart-container {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Calendar */
+.calendar-container {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    background-color: var(--dark-gray);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calendar-day:hover {
+    background-color: var(--primary-yellow);
+    color: var(--black);
+}
+
+/* Motivation */
+.quote-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#quote-text {
+    font-size: 1.5rem;
+    color: var(--primary-yellow);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.team-info {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.team-info h3 {
+    color: var(--primary-yellow);
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    text-align: center;
+    color: var(--white);
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .task-form {
+        grid-template-columns: 1fr;
+    }
+
+    .current-activity {
+        grid-template-columns: 1fr;
+    }
+
+    .timer-controls {
+        flex-direction: column;
+    }
+
+    .timer-mode {
+        flex-direction: column;
+    }
+}
+
+/* Dark Mode Toggle */
+body.dark-mode {
+    --primary-yellow: #FFD700;
+    --secondary-yellow: #FFC107;
+    --dark-yellow: #FFA000;
+    --black: #ffffff;
+    --dark-gray: #f0f0f0;
+    --light-gray: #e0e0e0;
+    --white: #000000;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.3s ease-out;
+} 

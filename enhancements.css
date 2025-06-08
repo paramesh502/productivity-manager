@@ -1,0 +1,211 @@
+/* Priority Colors */
+.task-item {
+    border-left: 4px solid var(--yellow);
+    transition: border-color 0.3s ease;
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    background: var(--light-gray);
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+/* Progress Dashboard */
+.progress-dashboard {
+    background: var(--dark-gray);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    background: var(--black);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-item h3 {
+    color: var(--yellow);
+    margin-bottom: 10px;
+}
+
+.stat-item div {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Focus Mode */
+.focus-mode .section:not(#task-manager) {
+    display: none;
+}
+
+#focus-mode-toggle {
+    background: transparent;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+#focus-mode-toggle:hover {
+    background: var(--yellow);
+    color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+}
+
+#focus-mode-toggle:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+}
+
+/* Data Controls */
+.data-controls {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.data-controls button {
+    background: transparent;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.data-controls button:hover {
+    background: var(--yellow);
+    color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+}
+
+.data-controls button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+}
+
+/* Task Templates */
+#task-template {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#task-template:focus {
+    border-color: var(--yellow);
+    outline: none;
+}
+
+/* Priority Selector */
+#task-priority {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    background: var(--dark-gray);
+    color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#task-priority:focus {
+    border-color: var(--yellow);
+    outline: none;
+}
+
+/* Task Actions */
+.task-actions button {
+    background: transparent;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 4px;
+}
+
+.task-actions button:hover {
+    background: var(--yellow);
+    color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+}
+
+.task-actions button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 193, 7, 0.2);
+}
+
+.task-actions button.completed {
+    background: var(--yellow);
+    color: var(--black);
+}
+
+/* Achievement Notifications */
+.achievement-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out;
+    z-index: 1000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-controls {
+        flex-direction: column;
+    }
+
+    .data-controls button {
+        width: 100%;
+    }
+} 
